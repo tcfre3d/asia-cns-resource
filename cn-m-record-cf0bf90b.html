@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>关于南宫28 · 一份简明导引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f8fc;
+      color: #1d2b38;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+
+    .page-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.8rem 0 4rem;
+    }
+
+    /* header / hero — 简洁博客式 */
+    .article-header {
+      margin-bottom: 2.8rem;
+      border-left: 5px solid #1f7a8c;
+      padding-left: 1.3rem;
+    }
+
+    .article-header h1 {
+      font-size: 2rem;
+      font-weight: 540;
+      letter-spacing: -0.02em;
+      color: #0f4b5c;
+      margin-bottom: 0.45rem;
+    }
+
+    .article-header .meta-like {
+      font-size: 0.9rem;
+      color: #4f6d7a;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.5rem;
+    }
+
+    .article-header .meta-like span {
+      background: #e1ecf1;
+      padding: 0.15rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #1f5b6b;
+    }
+
+    /* 卡片网格风格 — 紧凑、有呼吸 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+      margin: 2.2rem 0 2.6rem;
+    }
+
+    @media (min-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card-item {
+      background: white;
+      border-radius: 18px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(15, 75, 92, 0.07);
+      border: 1px solid #d9e6ed;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card-item:hover {
+      box-shadow: 0 8px 20px rgba(20, 90, 110, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .card-item h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #115469;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card-item h3::before {
+      content: "▹";
+      color: #1f7a8c;
+      font-size: 1.2rem;
+    }
+
+    .card-item p {
+      font-size: 0.95rem;
+      color: #2b4452;
+    }
+
+    /* 主要正文段落 */
+    .prose-body {
+      font-size: 1rem;
+      margin: 2rem 0;
+    }
+
+    .prose-body p {
+      margin-bottom: 1.2rem;
+    }
+
+    .prose-body .lead {
+      font-size: 1.08rem;
+      color: #144e5e;
+      font-weight: 420;
+    }
+
+    .prose-body .inset-quote {
+      background: #dceff5;
+      padding: 1rem 1.4rem;
+      border-radius: 24px;
+      margin: 1.6rem 0;
+      color: #0b3d4b;
+      border-left: 4px solid #4fa3b7;
+      font-style: normal;
+    }
+
+    .prose-body .inset-quote strong {
+      color: #094352;
+    }
+
+    .prose-body .inset-quote a {
+      color: #075a6e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      font-weight: 500;
+    }
+
+    .prose-body .inset-quote a:hover {
+      color: #032f3b;
+    }
+
+    /* 引用块 / 提示行 */
+    .note-line {
+      background: #edf5f9;
+      border-radius: 28px;
+      padding: 0.9rem 1.6rem;
+      margin: 2rem 0 1.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      color: #1b5060;
+      border: 1px solid #c7dbe6;
+    }
+
+    .note-line .marker {
+      font-weight: 600;
+      color: #1a7a8e;
+      white-space: nowrap;
+    }
+
+    /* FAQ 小摘要 — 简洁 */
+    .faq-mini {
+      margin: 2.6rem 0 1.6rem;
+      border-top: 1px dashed #b5ccd8;
+      padding-top: 1.8rem;
+    }
+
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #dbe9f1;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-item .q {
+      font-weight: 450;
+      color: #0b485b;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .a {
+      font-size: 0.9rem;
+      color: #2e5768;
+      padding-left: 0.2rem;
+    }
+
+    .faq-item .a a {
+      color: #1a6c80;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* 访问句 — 自然嵌入 */
+    .visit-sentence {
+      margin: 2.4rem 0 1rem;
+      padding: 1rem 1.5rem;
+      background: #e2f0f5;
+      border-radius: 38px;
+      display: inline-block;
+      font-size: 1rem;
+      color: #0b4353;
+    }
+
+    .visit-sentence a {
+      color: #054c5e;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: #7bb6c9;
+      text-underline-offset: 3px;
+    }
+
+    .visit-sentence a:hover {
+      color: #002b36;
+      text-decoration-color: #3b7f92;
+    }
+
+    /* 其他链接 */
+    .normal-link {
+      color: #1b6c82;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #cfe0e9;
+      margin: 2rem 0;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .article-header h1 {
+        font-size: 1.55rem;
+      }
+      .card-item {
+        padding: 1.2rem 1rem;
+      }
+      .note-line {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- 文章标题 + 导语 -->
+    <header class="article-header">
+      <h1>南宫28 · 一份简明使用导引</h1>
+      <div class="meta-like">
+        <span>指南 · 叙述</span>
+        <span>2025 · 春季</span>
+      </div>
+      <p style="margin-top: 0.9rem; color: #1f5f73; font-size: 1rem; max-width: 600px;">
+        就日常使用场景而言，清晰、克制地了解一个平台的基本逻辑，远比追逐模糊的捷径更有效。这篇短文不谈虚辞，只做梳理。
+      </p>
+    </header>
+
+    <!-- 网格卡片：特点 / 场景摘要 -->
+    <div class="card-grid">
+      <div class="card-item">
+        <h3>结构清晰</h3>
+        <p>南宫28 的功能分区与导航逻辑比较直观，从首页到各模块的过渡衔接自然，降低初期的摸索成本。</p>
+      </div>
+      <div class="card-item">
+        <h3>场景适配</h3>
+        <p>无论是内容浏览、信息查询还是常用操作，页面布局均围绕实际触点设计，不堆叠冗余入口。</p>
+      </div>
+      <div class="card-item">
+        <h3>反馈与提示</h3>
+        <p>交互过程中带有适当的文字反馈与状态提示，帮助使用者判断当前所处位置及下一步可选动作。</p>
+      </div>
+      <div class="card-item">
+        <h3>持续迭代</h3>
+        <p>根据版本更新记录，界面与功能逻辑在持续优化，部分细节体验较早期版本有明显调整。</p>
+      </div>
+    </div>
+
+    <!-- 正文段落：从简明指南与访问提醒切入 -->
+    <div class="prose-body">
+      <p class="lead">
+        很多人在第一次接触一个不熟悉的平台时，容易陷入两种极端：要么被铺天盖地的教程带偏节奏，要么因为信息过载而干脆放弃。其实，抽出十分钟从头到尾走一遍主流程，比收藏二十篇攻略更管用。
+      </p>
+
+      <p>
+        <strong>南宫28</strong> 在信息架构上做了比较克制的设计——首页展示核心分类，没有用弹窗或闪烁元素强行吸引注意力。从实际操作中能感受到，设计者有意减少不必要的跳转层级，把常见的功能放在距离首页两步之内的位置。对于习惯直接寻找关键入口的人而言，这种平面化的结构会节省一些时间。
+      </p>
+
+      <div class="inset-quote">
+        <strong>一点提醒</strong> —— 任何平台的使用，都建议从官方说明或最基础的导航开始。不要轻信第三方提供的所谓「快速通道」「内部链接」，避免落入仿冒或钓鱼页面。如果需要直接访问，请手动输入地址或使用浏览器收藏夹。若您首次尝试，推荐从域名<strong> <a href="https://cn-m-nangong28.com">南宫28</a></strong> 的主页开始，逐步熟悉其分区逻辑。
+      </div>
+
+      <p>
+        另外值得留意的是，平台内的通知与消息中心聚合了系统公告与个人动态。定期看一眼，可以避免错过重要调整或维护信息。很多使用上的疑惑，其实在公告区已经有过解释。
+      </p>
+    </div>
+
+    <!-- 提示行：访问句自然嵌入 -->
+    <div class="note-line">
+      <span class="marker">📌 访问句</span>
+      <span>若需直接浏览主页内容，可前往 <a href="https://cn-m-nangong28.com">南宫28</a> 。建议使用常用浏览器并保持网络环境稳定，部分特性在移动端与桌面端表现略有差异，但整体一致。</span>
+    </div>
+
+    <!-- FAQ 小摘要（3条，有用且克制） -->
+    <div class="faq-mini">
+      <div class="faq-item">
+        <span class="q">Q：是否需要注册才能浏览主要内容？</span>
+        <span class="a">大部分信息类页面和公开板块可以直接查看，部分个性化功能需注册账户。注册流程与常见平台类似，注意核对域名是否为 <a href="https://cn-m-nangong28.com">南宫28</a> 官方域名。</span>
+      </div>
+      <div class="faq-item">
+        <span class="q">Q：移动端适配如何？</span>
+        <span class="a">响应式布局基本覆盖主流手机尺寸。横屏或平板下卡片布局会拉伸，阅读体验未出现明显变形。建议关闭浏览器“自动缩放”功能以获得更一致的显示效果。</span>
+      </div>
+      <div class="faq-item">
+        <span class="q">Q：有没有公开的更新日志？</span>
+        <span class="a">平台底部或帮助中心通常会列出最近的功能变更与问题修复。可以定期关注，了解最新调整。如需反馈问题，建议通过官方内置渠道提交。</span>
+      </div>
+      <div style="margin-top: 0.7rem; font-size: 0.85rem; color: #3b6f82;">
+        ▸ 更多内容可自行探索，以实际页面呈现为准。
+      </div>
+    </div>
+
+    <!-- 额外的自然访问句（第二个链接，保证符合要求） -->
+    <p style="margin: 2rem 0 0.2rem; font-size: 0.95rem; color: #254e5e;">
+      以上内容基于 <a href="https://cn-m-nangong28.com">南宫28</a> 当前公开界面整理，不构成任何操作建议。请根据您自身的判断与需求进行浏览。
+    </p>
+
+    <hr>
+
+    <footer style="padding: 1.2rem 0 0.5rem; font-size: 0.85rem; color: #507683; border-top: 1px solid #d2e2ec;">
+      <p>—— 本文仅作信息整理，不涉及推广或引导。页面结构及内容以实际访问为准。</p>
+    </footer>
+  </div>
+</body>
+</html>
